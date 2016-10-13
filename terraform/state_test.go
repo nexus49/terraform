@@ -308,6 +308,7 @@ func TestStateDeepCopy(t *testing.T) {
 
 	for i, tc := range cases {
 		t.Run(fmt.Sprintf("copy-%d", i), func(t *testing.T) {
+			tc.State.Init()
 			actual := tc.State.DeepCopy()
 			expected := tc.State
 			if !reflect.DeepEqual(actual, expected) {
